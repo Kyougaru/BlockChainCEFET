@@ -1,0 +1,363 @@
+{
+  "contractName": "IAlunoContract",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "nome",
+          "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "wallet",
+          "type": "address"
+        }
+      ],
+      "name": "inserirAluno",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        }
+      ],
+      "name": "getAlunoById",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "nome",
+              "type": "string"
+            },
+            {
+              "internalType": "address",
+              "name": "wallet",
+              "type": "address"
+            }
+          ],
+          "internalType": "struct Aluno",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"}],\"name\":\"getAlunoById\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"nome\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"wallet\",\"type\":\"address\"}],\"internalType\":\"struct Aluno\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"nome\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"wallet\",\"type\":\"address\"}],\"name\":\"inserirAluno\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/IAlunoContract.sol\":\"IAlunoContract\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/AcademicTypes.sol\":{\"keccak256\":\"0x6ba93ff1058f6662018c49f2f6075ac3b438b12ce1a12c9e65d8f52db2f81117\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://a56518b3f3aa4a144cea3e6cde4b5a4d66f7042a7fcc3806802496e1d46917bd\",\"dweb:/ipfs/QmTDrVKLaWt6sLcJTJ86SrWF5Yp8mjCChmCyPe4mdm5abZ\"]},\"project:/contracts/IAlunoContract.sol\":{\"keccak256\":\"0x31a5b8266cd9a616b4c904a805b8a02e28c295a602c997aed52302917eb00a2c\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://f1de297d4ff75c9b2f9688e7705215f369aeb5b5bb3acee25a2673f8dbfd6674\",\"dweb:/ipfs/QmWN7eqhauSQKoxDBcV1gCkpsmRv47p5Bbr6PrbLXsbGy4\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: GPL-3.0\n\npragma solidity >=0.7.0 <0.9.0;\n\nimport \"./AcademicTypes.sol\";\n\ninterface IAlunoContract{\n\n    function inserirAluno(uint id, string memory nome, address wallet) external;\n\n    function getAlunoById(uint id) external view returns (Aluno memory);\n\n}\n",
+  "sourcePath": "/home/fxavier/cefet-rj/blck-2022.2/BlockChainCEFET/frontend/academic_dapp/contracts/IAlunoContract.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/IAlunoContract.sol",
+    "exportedSymbols": {
+      "Aluno": [
+        1176
+      ],
+      "Disciplina": [
+        1183
+      ],
+      "IAlunoContract": [
+        1461
+      ],
+      "Periodo": [
+        1186
+      ]
+    },
+    "id": 1462,
+    "license": "GPL-3.0",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1442,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.7",
+          ".0",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "37:31:9"
+      },
+      {
+        "absolutePath": "project:/contracts/AcademicTypes.sol",
+        "file": "./AcademicTypes.sol",
+        "id": 1443,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 1462,
+        "sourceUnit": 1187,
+        "src": "70:29:9",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IAlunoContract",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 1461,
+        "linearizedBaseContracts": [
+          1461
+        ],
+        "name": "IAlunoContract",
+        "nameLocation": "111:14:9",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "34c51068",
+            "id": 1452,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "inserirAluno",
+            "nameLocation": "141:12:9",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1450,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1445,
+                  "mutability": "mutable",
+                  "name": "id",
+                  "nameLocation": "159:2:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1452,
+                  "src": "154:7:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1444,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "154:4:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1447,
+                  "mutability": "mutable",
+                  "name": "nome",
+                  "nameLocation": "177:4:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1452,
+                  "src": "163:18:9",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 1446,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "163:6:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1449,
+                  "mutability": "mutable",
+                  "name": "wallet",
+                  "nameLocation": "191:6:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1452,
+                  "src": "183:14:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1448,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "183:7:9",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "153:45:9"
+            },
+            "returnParameters": {
+              "id": 1451,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "207:0:9"
+            },
+            "scope": 1461,
+            "src": "132:76:9",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "0ffbb06c",
+            "id": 1460,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getAlunoById",
+            "nameLocation": "223:12:9",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1455,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1454,
+                  "mutability": "mutable",
+                  "name": "id",
+                  "nameLocation": "241:2:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1460,
+                  "src": "236:7:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1453,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "236:4:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "235:9:9"
+            },
+            "returnParameters": {
+              "id": 1459,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1458,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1460,
+                  "src": "268:12:9",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Aluno_$1176_memory_ptr",
+                    "typeString": "struct Aluno"
+                  },
+                  "typeName": {
+                    "id": 1457,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 1456,
+                      "name": "Aluno",
+                      "nameLocations": [
+                        "268:5:9"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 1176,
+                      "src": "268:5:9"
+                    },
+                    "referencedDeclaration": 1176,
+                    "src": "268:5:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Aluno_$1176_storage_ptr",
+                      "typeString": "struct Aluno"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "267:14:9"
+            },
+            "scope": 1461,
+            "src": "214:68:9",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 1462,
+        "src": "101:184:9",
+        "usedErrors": []
+      }
+    ],
+    "src": "37:249:9"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.17+commit.8df45f5f.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.11",
+  "updatedAt": "2022-12-19T15:43:51.313Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

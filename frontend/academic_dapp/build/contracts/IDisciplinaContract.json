@@ -1,0 +1,363 @@
+{
+  "contractName": "IDisciplinaContract",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "nome",
+          "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "professor",
+          "type": "address"
+        }
+      ],
+      "name": "inserirDisciplina",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        }
+      ],
+      "name": "getDisciplinaById",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "nome",
+              "type": "string"
+            },
+            {
+              "internalType": "address",
+              "name": "professor",
+              "type": "address"
+            }
+          ],
+          "internalType": "struct Disciplina",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"}],\"name\":\"getDisciplinaById\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"nome\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"professor\",\"type\":\"address\"}],\"internalType\":\"struct Disciplina\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"nome\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"professor\",\"type\":\"address\"}],\"name\":\"inserirDisciplina\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/IDisciplinaContract.sol\":\"IDisciplinaContract\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/AcademicTypes.sol\":{\"keccak256\":\"0x6ba93ff1058f6662018c49f2f6075ac3b438b12ce1a12c9e65d8f52db2f81117\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://a56518b3f3aa4a144cea3e6cde4b5a4d66f7042a7fcc3806802496e1d46917bd\",\"dweb:/ipfs/QmTDrVKLaWt6sLcJTJ86SrWF5Yp8mjCChmCyPe4mdm5abZ\"]},\"project:/contracts/IDisciplinaContract.sol\":{\"keccak256\":\"0x05a45d7a0659270b599937f2e0bcbce11b3907312775d6ac5b0ef069d8d3b740\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://83a652e544659f61029db7a341f836e67c2a1d4482218d85852b4230e9d6dbf9\",\"dweb:/ipfs/QmbeEs2fYsBX5JAwjHFm2ju1obVEdoVQUGtbyhLq66k2TT\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: GPL-3.0\n\npragma solidity >=0.7.0 <0.9.0;\n\nimport \"./AcademicTypes.sol\";\n\ninterface IDisciplinaContract{\n\n    function inserirDisciplina(uint id, string memory nome, address professor) external;\n\n    function getDisciplinaById(uint id) external view returns (Disciplina memory);\n\n}",
+  "sourcePath": "/home/fxavier/cefet-rj/blck-2022.2/BlockChainCEFET/frontend/academic_dapp/contracts/IDisciplinaContract.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/IDisciplinaContract.sol",
+    "exportedSymbols": {
+      "Aluno": [
+        1176
+      ],
+      "Disciplina": [
+        1183
+      ],
+      "IDisciplinaContract": [
+        1482
+      ],
+      "Periodo": [
+        1186
+      ]
+    },
+    "id": 1483,
+    "license": "GPL-3.0",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1463,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.7",
+          ".0",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "37:31:10"
+      },
+      {
+        "absolutePath": "project:/contracts/AcademicTypes.sol",
+        "file": "./AcademicTypes.sol",
+        "id": 1464,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 1483,
+        "sourceUnit": 1187,
+        "src": "70:29:10",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IDisciplinaContract",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 1482,
+        "linearizedBaseContracts": [
+          1482
+        ],
+        "name": "IDisciplinaContract",
+        "nameLocation": "111:19:10",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "1300867b",
+            "id": 1473,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "inserirDisciplina",
+            "nameLocation": "146:17:10",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1471,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1466,
+                  "mutability": "mutable",
+                  "name": "id",
+                  "nameLocation": "169:2:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1473,
+                  "src": "164:7:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1465,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "164:4:10",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1468,
+                  "mutability": "mutable",
+                  "name": "nome",
+                  "nameLocation": "187:4:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1473,
+                  "src": "173:18:10",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 1467,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "173:6:10",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1470,
+                  "mutability": "mutable",
+                  "name": "professor",
+                  "nameLocation": "201:9:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1473,
+                  "src": "193:17:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1469,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "193:7:10",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "163:48:10"
+            },
+            "returnParameters": {
+              "id": 1472,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "220:0:10"
+            },
+            "scope": 1482,
+            "src": "137:84:10",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "f6847b5b",
+            "id": 1481,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getDisciplinaById",
+            "nameLocation": "236:17:10",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1476,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1475,
+                  "mutability": "mutable",
+                  "name": "id",
+                  "nameLocation": "259:2:10",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1481,
+                  "src": "254:7:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1474,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "254:4:10",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "253:9:10"
+            },
+            "returnParameters": {
+              "id": 1480,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1479,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1481,
+                  "src": "286:17:10",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Disciplina_$1183_memory_ptr",
+                    "typeString": "struct Disciplina"
+                  },
+                  "typeName": {
+                    "id": 1478,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 1477,
+                      "name": "Disciplina",
+                      "nameLocations": [
+                        "286:10:10"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 1183,
+                      "src": "286:10:10"
+                    },
+                    "referencedDeclaration": 1183,
+                    "src": "286:10:10",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Disciplina_$1183_storage_ptr",
+                      "typeString": "struct Disciplina"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "285:19:10"
+            },
+            "scope": 1482,
+            "src": "227:78:10",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 1483,
+        "src": "101:207:10",
+        "usedErrors": []
+      }
+    ],
+    "src": "37:271:10"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.17+commit.8df45f5f.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.11",
+  "updatedAt": "2022-12-19T15:43:51.314Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
