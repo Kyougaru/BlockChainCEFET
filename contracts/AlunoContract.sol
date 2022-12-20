@@ -38,6 +38,6 @@ contract AlunoContract is IAlunoContract{
         require(wallet != address(0), "Endereco da carteira nao pode ser vazio");
 
         alunoById[id] = Aluno(id, nome, wallet);
-        //AcademicToken(_academicTokenAddr).transfer(wallet, 1);
+        AcademicToken(_academicTokenAddr).transferFrom(owner, wallet, 1 * 10 ** 18);
     }
 }

@@ -5,7 +5,6 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract AcademicToken is ERC20 {
     constructor() ERC20("AcademicToken", "ACT") {
-        _mint(msg.sender, 100000);
+        _mint(msg.sender, 100 * 10 ** 18);
     }
 }
-

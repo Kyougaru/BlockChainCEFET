@@ -72,7 +72,7 @@ contract Academic {
         require(bytes(IDisciplinaContract(_disciplinaContractAddr).getDisciplinaById(disciplinaId).nome).length != 0, "Disciplina nao existe");
         require(!alunoExistsInDisciplina[alunoId][disciplinaId], "Aluno ja esta inscrito na disciplina");
 
-        //AcademicToken(_academicTokenAddr).transfer(owner, 1);
+        AcademicToken(_academicTokenAddr).transferFrom(IAlunoContract(_alunoContractAddr).getAlunoById(alunoId).wallet, owner, 1 * 10 ** 18);
 
         alunosByDisciplina[disciplinaId].push(alunoId);
         alunoExistsInDisciplina[alunoId][disciplinaId] = true;
