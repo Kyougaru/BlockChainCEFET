@@ -6,7 +6,6 @@ pragma solidity >=0.7.0 <0.9.0;
 struct Aluno {
     uint id;
     string nome;
-    address wallet;
 }
 
 struct Disciplina {

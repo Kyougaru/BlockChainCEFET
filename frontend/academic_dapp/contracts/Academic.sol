@@ -45,8 +45,8 @@ contract Academic {
 
     modifier onlyAluno(uint alunoId) {
         Aluno memory a = IAlunoContract(_alunoContractAddr).getAlunoById(alunoId);
-        require(a.wallet != address(0), "Aluno nao existente");
-        require(msg.sender == a.wallet, "Nao autorizado");
+        // require(a.wallet != address(0), "Aluno nao existente");
+        // require(msg.sender == a.wallet, "Nao autorizado");
         _;
     }
 

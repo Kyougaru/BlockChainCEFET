@@ -6,9 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Academic System</title>
-
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/web3@latest/dist/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script>
     <!-- Bootstrap -->
-    <link href="css/styles.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -21,17 +26,17 @@
   <body>
 
     <!--NAVBAR-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand navbar-light bg-light">
       <a class="navbar-brand" href="/">Academic System Using Blockchain</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-item nav-link" href="pages/InsertStudent.html">Insert Student <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="pages/InsertCourse.html">Insert Course</a>
-          <a class="nav-item nav-link" href="pages/SubscribeStudentInCourse.html">Subscribe Student in Course</a>
-          <a class="nav-item nav-link" href="pages/AssignNotes.html">Assign Notes</a>
+          <a class="nav-link" href="pages/InsertStudent.html">Insert Student</a>
+          <a class="nav-link" href="pages/InsertCourse.html">Insert Course</a>
+          <a class="nav-link" href="pages/SubscribeStudentInCourse.html">Subscribe Student in Course</a>
+          <a class="nav-link" href="pages/AssignNotes.html">Assign Notes</a>
         </div>
       </div>
     </nav>
@@ -62,12 +67,8 @@
       </div>
     </div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/web3.min.js"></script>
-    <script src="js/truffle-contract.js"></script>
-    <script src="js/app.js"></script>
+
+
+
   </body>
 </html>
