@@ -31,38 +31,27 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="InsertStudent.html">Insert Student <span
-            class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" href="InsertCourse.html">Insert Course</a>
+        <a class="nav-item nav-link" href="InsertStudent.html">Insert Student <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link active" href="InsertCourse.html">Insert Course</a>
         <a class="nav-item nav-link" href="SubscribeStudentInCourse.html">Subscribe Student in Course</a>
-        <a class="nav-item nav-link" href="AssignNotes.html">Assign Notes</a>
+        <a class="nav-item nav-link" href="AssignNotes.html">Assign Notes</a>      
         <a class="nav-item nav-link" href="SeeCourseResults.html">See Course Results</a>
       </div>
     </div>
     <div style="float:right"><a class="navbar-nav nav-item nav-link" href="Admin.html">Admin</a></div>
   </nav>
 
-  <!-- INSERT STUDENT FORM -->
+  <!-- INSERT ADMIN BUTTONS -->
   <div class="container">
     <div class="container pt-4" style="width: 50%;">
-      <h1 class="display-5 text-center">Insert Student</h2>
-        <form id="insertStudentForm">
-		      <div class="form-group">
-            <label for="id">Student ID</label>
-            <input type="number" class="form-control" id="studentId" placeholder="ID here">
-          </div>
-          <div class="form-group">
-            <label for="name">Student Name</label>
-            <input type="text" class="form-control" id="studentName" placeholder="Name here">
-          </div>
-		      <div class="form-group">
-            <label for="wallet">Student Wallet</label>
-            <input type="text" class="form-control" id="studentWallet" placeholder="Wallet here">
-          </div>
-          <button type="submit" class="btn btn-dark btn-insert-student">Insert</button>
-        </form>
+      <h1 class="display-5 text-center">Admin</h2>
+        <div style="display:flex;">
+            <button type="submit" class="btn btn-dark btn-link-contracts" style="flex:1 1 auto; margin-right:5px">Linkar Contratos no Academic</button>
+            <button type="submit" class="btn btn-dark btn-set-lancamento-notas" style="flex:1 1 auto; margin-right:5px">Abrir Lançamento de Nota</button>
+        </div>
     </div>
   </div>
+
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

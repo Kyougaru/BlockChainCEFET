@@ -38,6 +38,7 @@
         <a class="nav-item nav-link" href="SeeCourseResults.html">See Course Results</a>
       </div>
     </div>
+    <div style="float:right"><a class="navbar-nav nav-item nav-link" href="Admin.html">Admin</a></div>
   </nav>
 
   <!-- INSERT COURSE FORM -->
@@ -46,18 +47,18 @@
       <h1 class="display-5 text-center">Insert Course</h2>
         <form>
           <div class="form-group">
-            <label for="name">Course Name</label>
-            <input type="text" class="form-control" id="name" placeholder="Name here">
-          </div>
-          <div class="form-group">
             <label for="id">Course ID</label>
-            <input type="number" class="form-control" id="id" placeholder="ID here">
+            <input type="number" class="form-control" id="courseId" placeholder="ID here">
           </div>
           <div class="form-group">
-            <label for="name">Professor Name</label>
-            <input type="text" class="form-control" id="professorName" placeholder="Professor Name here">
+            <label for="name">Course Name</label>
+            <input type="text" class="form-control" id="courseName" placeholder="Name here">
           </div>
-          <button type="submit" class="btn btn-dark">Insert</button>
+          <div class="form-group">
+            <label for="address">Professor Name</label>
+            <input type="text" class="form-control" id="professorAddress" placeholder="Professor Address here">
+          </div>
+          <button type="submit" class="btn btn-dark btn-insert-course">Insert</button>
         </form>
     </div>
   </div>

@@ -52,15 +52,27 @@ App= {
   },
 
   initContract: function () {
-    $.getJSON("../js/AlunoContract.json", function (data) {
-      // Get the necessary contract artifact file and instantiate it with @truffle/contract
+    $.getJSON("../AcademicToken.json", function (AcademicTokenArtifact) {
+      App.contracts.AcademicToken = TruffleContract(AcademicTokenArtifact);
+      App.contracts.AcademicToken.setProvider(App.web3Provider);
+      return;
+    });
 
-      var AlunoContractArtifact = data;
+    $.getJSON("../AlunoContract.json", function (AlunoContractArtifact) {
       App.contracts.AlunoContract = TruffleContract(AlunoContractArtifact);
-      // Set the provider for our contract
       App.contracts.AlunoContract.setProvider(App.web3Provider);
+      return;
+    });
 
-      // Use our contract to retrieve and mark the adopted pets
+    $.getJSON("../DisciplinaContract.json", function (DisciplinaContractArtifact) {
+      App.contracts.DisciplinaContract = TruffleContract(DisciplinaContractArtifact);
+      App.contracts.DisciplinaContract.setProvider(App.web3Provider);
+      return;
+    });
+
+    $.getJSON("../Academic.json", function (AcademicArtifact) {
+      App.contracts.Academic = TruffleContract(AcademicArtifact);
+      App.contracts.Academic.setProvider(App.web3Provider);
       return;
     });
 
@@ -69,14 +81,21 @@ App= {
 
   bindEvents: function () {
     $(document).on("click", ".btn-insert-student", App.handleInsertStudent);
+    $(document).on("click", ".btn-insert-course", App.handleInsertCourse);
+    $(document).on("click", ".btn-link-contracts", App.handleLinkContracts);
+    $(document).on("click", ".btn-insert-student-in-course", App.handleInsertStudentInCourse);
+    $(document).on("click", ".btn-set-lancamento-notas", App.handleSetLancamentoNotas);
+    $(document).on("click", ".btn-insert-grade", App.handleInsertGrade);
+    $(document).on("click", ".btn-list-course", App.handleListCourse);
   },
 
   handleInsertStudent: function (event) {
     event.preventDefault();
 
-    var studentId = parseInt($('#id').val());
+    var studentId = parseInt($('#studentId').val());
     var studentName = $('#studentName').val();
-	var studentWallet = $('#studentWallet').val();
+	  var studentWallet = $('#studentWallet').val();
+    var academicTokenInstance;
     var studentInstance;
 
     web3.eth.getAccounts(function (error, accounts) {
@@ -84,19 +103,225 @@ App= {
         console.log(error);
       }
       
-      var account = accounts[0]
-      console.log(account) //verifica numero da conta
-      console.log(web3._extend.utils.isAddress(account)) //verifica se o endereço é correto
+      App.contracts.AcademicToken.deployed()
+        .then(function (instance) {
+          academicTokenInstance = instance;
+        })
+        .catch(function (err) {
+          console.log(err.message);
+        });
       
       App.contracts.AlunoContract.deployed()
         .then(function (instance) {
           studentInstance = instance;
           console.log("entrou no bloco do contrato")
-          // Execute adopt as a transaction by sending account
-          return studentInstance.inserirAluno(studentId, studentName, studentWallet);
+          //aprova transferencia de token
+          academicTokenInstance.approve(studentInstance.address, 1 * 10 ** 18, {from: web3.eth.accounts[0], gas:3000000});
+          //insere aluno
+          return studentInstance.inserirAluno(studentId, studentName, studentWallet, {from: web3.eth.accounts[0], gas:3000000});
         })
         .then(function (result) {
-          //return App.markAdopted();
+          console.log("já rodou o contrato")
+        })
+        .catch(function (err) {
+          console.log(err.message);
+        });
+    });
+  },
+
+  handleInsertCourse: function (event) {
+    event.preventDefault();
+
+    var courseId = parseInt($('#courseId').val());
+    var courseName = $('#courseName').val();
+	  var professorAddress = $('#professorAddress').val();
+    var courseInstance;
+
+    web3.eth.getAccounts(function (error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+      
+      App.contracts.DisciplinaContract.deployed()
+        .then(function (instance) {
+          courseInstance = instance;
+          console.log("entrou no bloco do contrato")
+          return courseInstance.inserirDisciplina(courseId, courseName, professorAddress, {from: web3.eth.accounts[0], gas:3000000});
+        })
+        .then(function (result) {
+          console.log("já rodou o contrato")
+        })
+        .catch(function (err) {
+          console.log(err.message);
+        });
+    });
+  },
+
+  handleLinkContracts: function (event) {
+    event.preventDefault();
+
+    var academicInstance;
+    var alunoInstance;
+    var disciplinaInstance;
+    var academicTokenInstance;
+
+    web3.eth.getAccounts(function (error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+      
+      App.contracts.AlunoContract.deployed()
+        .then(function (instance) {
+          alunoInstance = instance;
+        })
+        .catch(function (err) {
+          console.log(err.message);
+        });
+
+      App.contracts.DisciplinaContract.deployed()
+        .then(function (instance) {
+          disciplinaInstance = instance;
+        })
+        .catch(function (err) {
+          console.log(err.message);
+        });
+      
+      App.contracts.AcademicToken.deployed()
+        .then(function (instance) {
+          academicTokenInstance = instance;
+        })
+        .catch(function (err) {
+          console.log(err.message);
+        });
+
+      App.contracts.Academic.deployed()
+        .then(function (instance) {
+          academicInstance = instance;
+          console.log("entrou no bloco do contrato")
+          academicInstance.setAlunoContractAddress(alunoInstance.address, {from: web3.eth.accounts[0], gas:3000000});
+          academicInstance.setDisciplinaContractAddress(disciplinaInstance.address, {from: web3.eth.accounts[0], gas:3000000});
+          academicInstance.setAcademicTokenAddress(academicTokenInstance.address, {from: web3.eth.accounts[0], gas:3000000});
+          return;
+        })
+        .then(function (result) {
+          console.log("já rodou o contrato")
+        })
+        .catch(function (err) {
+          console.log(err.message);
+        });
+    });
+  },
+  
+  handleInsertStudentInCourse: function (event) {
+    event.preventDefault();
+
+    var studentId = parseInt($('#studentId').val());
+    var courseId = parseInt($('#courseId').val());
+    var academicInstance;
+    var academicTokenInstance;
+
+    web3.eth.getAccounts(function (error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+      
+      App.contracts.AcademicToken.deployed()
+        .then(function (instance) {
+          academicTokenInstance = instance;
+        })
+        .catch(function (err) {
+          console.log(err.message);
+        });
+
+      App.contracts.Academic.deployed()
+        .then(function (instance) {
+          academicInstance = instance;
+          console.log("entrou no bloco do contrato")
+          //aprova transferencia de token
+          academicTokenInstance.approve(academicInstance.address, 1 * 10 ** 18, {from: web3.eth.accounts[1], gas:3000000});
+          //insere aluno na disciplina
+          return academicInstance.inserirAlunoInDisciplina(studentId, courseId, {from: web3.eth.accounts[1], gas:3000000});
+        })
+        .then(function (result) {
+          console.log("já rodou o contrato")
+        })
+        .catch(function (err) {
+          console.log(err.message);
+        });
+    });
+  },
+
+  handleSetLancamentoNotas: function (event) {
+    event.preventDefault();
+
+    var academicInstance;
+
+    web3.eth.getAccounts(function (error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+      
+      App.contracts.Academic.deployed()
+        .then(function (instance) {
+          academicInstance = instance;
+          console.log("entrou no bloco do contrato")
+          return academicInstance.abrirLancamentoNota({from: web3.eth.accounts[0], gas:3000000});
+        })
+        .then(function (result) {
+          console.log("já rodou o contrato")
+        })
+        .catch(function (err) {
+          console.log(err.message);
+        });
+    });
+  },
+
+  handleInsertGrade: function (event) {
+    event.preventDefault();
+
+    var studentId = parseInt($('#studentId').val());
+    var courseId = parseInt($('#courseId').val());
+	  var grade = parseInt($('#grade').val());
+    var academicInstance;
+
+    web3.eth.getAccounts(function (error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+      
+      App.contracts.Academic.deployed()
+        .then(function (instance) {
+          academicInstance = instance;
+          console.log("entrou no bloco do contrato")
+          return academicInstance.inserirNota(studentId, courseId, grade, {from: web3.eth.accounts[2], gas:3000000});
+        })
+        .then(function (result) {
+          console.log("já rodou o contrato")
+        })
+        .catch(function (err) {
+          console.log(err.message);
+        });
+    });
+  },
+
+  handleListCourse: function (event) {
+    event.preventDefault();
+
+    var courseId = parseInt($('#courseId').val());
+    var academicInstance;
+
+    web3.eth.getAccounts(function (error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+      
+      App.contracts.Academic.deployed()
+        .then(function (instance) {
+          academicInstance = instance;
+          console.log("entrou no bloco do contrato")
+          return academicInstance.listarNotasDisciplina(courseId, {from: web3.eth.accounts[0], gas:3000000});
+        })
+        .then(function (result) {
           console.log("já rodou o contrato")
         })
         .catch(function (err) {
