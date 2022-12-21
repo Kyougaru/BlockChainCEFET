@@ -47,6 +47,7 @@ App= {
       );
     }
     web3 = new Web3(App.web3Provider);
+	  web3.eth.defaultAccount = web3.eth.accounts[0];
     return App.initContract();
   },
 
@@ -75,6 +76,7 @@ App= {
 
     var studentId = parseInt($('#id').val());
     var studentName = $('#studentName').val();
+	var studentWallet = $('#studentWallet').val();
     var studentInstance;
 
     web3.eth.getAccounts(function (error, accounts) {
@@ -91,7 +93,7 @@ App= {
           studentInstance = instance;
           console.log("entrou no bloco do contrato")
           // Execute adopt as a transaction by sending account
-          return studentInstance.inserirAluno(studentId, studentName);
+          return studentInstance.inserirAluno(studentId, studentName, studentWallet);
         })
         .then(function (result) {
           //return App.markAdopted();

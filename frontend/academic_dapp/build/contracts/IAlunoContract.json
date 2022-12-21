@@ -12,6 +12,11 @@
           "internalType": "string",
           "name": "nome",
           "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "wallet",
+          "type": "address"
         }
       ],
       "name": "inserirAluno",
@@ -40,6 +45,11 @@
               "internalType": "string",
               "name": "nome",
               "type": "string"
+            },
+            {
+              "internalType": "address",
+              "name": "wallet",
+              "type": "address"
             }
           ],
           "internalType": "struct Aluno",
@@ -51,7 +61,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"}],\"name\":\"getAlunoById\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"nome\",\"type\":\"string\"}],\"internalType\":\"struct Aluno\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"nome\",\"type\":\"string\"}],\"name\":\"inserirAluno\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/IAlunoContract.sol\":\"IAlunoContract\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/AcademicTypes.sol\":{\"keccak256\":\"0x7c7fa2da6cfaf9891570ba5f6ba125569d558e66c8e3315bff9015b3ab7502b6\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://59d7057a990210154e9a2e3978deef3196e07dcf658c2f236bda60f9e59ad84a\",\"dweb:/ipfs/QmZC9qbkbrWiRr8jUKN8cpmJhvF9Tb4vYwEh571VsKiesc\"]},\"project:/contracts/IAlunoContract.sol\":{\"keccak256\":\"0x365921dcd386a7f16437c98fec5756f517ad953d174b58d48ba20c2933ca0b67\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://c255bc542bc380d15c66b4195010e3bae215a4c9fcda061b675cbd05f3561174\",\"dweb:/ipfs/Qmb4zBoJ2LqQvvVRFiidCjxapymGe6R4o1efPivodZ5rGu\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"}],\"name\":\"getAlunoById\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"nome\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"wallet\",\"type\":\"address\"}],\"internalType\":\"struct Aluno\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"nome\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"wallet\",\"type\":\"address\"}],\"name\":\"inserirAluno\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/IAlunoContract.sol\":\"IAlunoContract\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/AcademicTypes.sol\":{\"keccak256\":\"0x6ba93ff1058f6662018c49f2f6075ac3b438b12ce1a12c9e65d8f52db2f81117\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://a56518b3f3aa4a144cea3e6cde4b5a4d66f7042a7fcc3806802496e1d46917bd\",\"dweb:/ipfs/QmTDrVKLaWt6sLcJTJ86SrWF5Yp8mjCChmCyPe4mdm5abZ\"]},\"project:/contracts/IAlunoContract.sol\":{\"keccak256\":\"0x31a5b8266cd9a616b4c904a805b8a02e28c295a602c997aed52302917eb00a2c\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://f1de297d4ff75c9b2f9688e7705215f369aeb5b5bb3acee25a2673f8dbfd6674\",\"dweb:/ipfs/QmWN7eqhauSQKoxDBcV1gCkpsmRv47p5Bbr6PrbLXsbGy4\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -59,30 +69,30 @@
   "deployedGeneratedSources": [],
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "// SPDX-License-Identifier: GPL-3.0\n\npragma solidity >=0.7.0 <0.9.0;\n\nimport \"./AcademicTypes.sol\";\n\ninterface IAlunoContract{\n\n    function inserirAluno(uint id, string memory nome) external;\n\n    function getAlunoById(uint id) external view returns (Aluno memory);\n\n}\n",
-  "sourcePath": "/home/fxavier/cefet-rj/blck-2022.2/BlockChainCEFET/frontend/academic_dapp/contracts/IAlunoContract.sol",
+  "source": "// SPDX-License-Identifier: GPL-3.0\n\npragma solidity >=0.7.0 <0.9.0;\n\nimport \"./AcademicTypes.sol\";\n\ninterface IAlunoContract{\n\n    function inserirAluno(uint id, string memory nome, address wallet) external;\n\n    function getAlunoById(uint id) external view returns (Aluno memory);\n\n}\n",
+  "sourcePath": "D:\\academic-dapp-master\\frontend\\academic_dapp\\contracts\\IAlunoContract.sol",
   "ast": {
     "absolutePath": "project:/contracts/IAlunoContract.sol",
     "exportedSymbols": {
       "Aluno": [
-        1154
+        3965
       ],
       "Disciplina": [
-        1161
+        3972
       ],
       "IAlunoContract": [
-        1448
+        4263
       ],
       "Periodo": [
-        1164
+        3975
       ]
     },
-    "id": 1449,
+    "id": 4264,
     "license": "GPL-3.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1431,
+        "id": 4244,
         "literals": [
           "solidity",
           ">=",
@@ -93,17 +103,17 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "37:31:9"
+        "src": "37:31:21"
       },
       {
         "absolutePath": "project:/contracts/AcademicTypes.sol",
         "file": "./AcademicTypes.sol",
-        "id": 1432,
+        "id": 4245,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 1449,
-        "sourceUnit": 1165,
-        "src": "70:29:9",
+        "scope": 4264,
+        "sourceUnit": 3976,
+        "src": "70:29:21",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -114,36 +124,36 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 1448,
+        "id": 4263,
         "linearizedBaseContracts": [
-          1448
+          4263
         ],
         "name": "IAlunoContract",
-        "nameLocation": "111:14:9",
+        "nameLocation": "111:14:21",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
-            "functionSelector": "d204b1c2",
-            "id": 1439,
+            "functionSelector": "34c51068",
+            "id": 4254,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "inserirAluno",
-            "nameLocation": "141:12:9",
+            "nameLocation": "141:12:21",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1437,
+              "id": 4252,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1434,
+                  "id": 4247,
                   "mutability": "mutable",
                   "name": "id",
-                  "nameLocation": "159:2:9",
+                  "nameLocation": "159:2:21",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1439,
-                  "src": "154:7:9",
+                  "scope": 4254,
+                  "src": "154:7:21",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -151,10 +161,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1433,
+                    "id": 4246,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "154:4:9",
+                    "src": "154:4:21",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -164,13 +174,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 1436,
+                  "id": 4249,
                   "mutability": "mutable",
                   "name": "nome",
-                  "nameLocation": "177:4:9",
+                  "nameLocation": "177:4:21",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1439,
-                  "src": "163:18:9",
+                  "scope": 4254,
+                  "src": "163:18:21",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -178,54 +188,82 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1435,
+                    "id": 4248,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "163:6:9",
+                    "src": "163:6:21",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
                     }
                   },
                   "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4251,
+                  "mutability": "mutable",
+                  "name": "wallet",
+                  "nameLocation": "191:6:21",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4254,
+                  "src": "183:14:21",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4250,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "183:7:21",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
                 }
               ],
-              "src": "153:29:9"
+              "src": "153:45:21"
             },
             "returnParameters": {
-              "id": 1438,
+              "id": 4253,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "191:0:9"
+              "src": "207:0:21"
             },
-            "scope": 1448,
-            "src": "132:60:9",
+            "scope": 4263,
+            "src": "132:76:21",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "0ffbb06c",
-            "id": 1447,
+            "id": 4262,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getAlunoById",
-            "nameLocation": "207:12:9",
+            "nameLocation": "223:12:21",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1442,
+              "id": 4257,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1441,
+                  "id": 4256,
                   "mutability": "mutable",
                   "name": "id",
-                  "nameLocation": "225:2:9",
+                  "nameLocation": "241:2:21",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1447,
-                  "src": "220:7:9",
+                  "scope": 4262,
+                  "src": "236:7:21",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -233,10 +271,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1440,
+                    "id": 4255,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "220:4:9",
+                    "src": "236:4:21",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -245,65 +283,65 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "219:9:9"
+              "src": "235:9:21"
             },
             "returnParameters": {
-              "id": 1446,
+              "id": 4261,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1445,
+                  "id": 4260,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1447,
-                  "src": "252:12:9",
+                  "scope": 4262,
+                  "src": "268:12:21",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Aluno_$1154_memory_ptr",
+                    "typeIdentifier": "t_struct$_Aluno_$3965_memory_ptr",
                     "typeString": "struct Aluno"
                   },
                   "typeName": {
-                    "id": 1444,
+                    "id": 4259,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 1443,
+                      "id": 4258,
                       "name": "Aluno",
                       "nameLocations": [
-                        "252:5:9"
+                        "268:5:21"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 1154,
-                      "src": "252:5:9"
+                      "referencedDeclaration": 3965,
+                      "src": "268:5:21"
                     },
-                    "referencedDeclaration": 1154,
-                    "src": "252:5:9",
+                    "referencedDeclaration": 3965,
+                    "src": "268:5:21",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Aluno_$1154_storage_ptr",
+                      "typeIdentifier": "t_struct$_Aluno_$3965_storage_ptr",
                       "typeString": "struct Aluno"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "251:14:9"
+              "src": "267:14:21"
             },
-            "scope": 1448,
-            "src": "198:68:9",
+            "scope": 4263,
+            "src": "214:68:21",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 1449,
-        "src": "101:168:9",
+        "scope": 4264,
+        "src": "101:184:21",
         "usedErrors": []
       }
     ],
-    "src": "37:233:9"
+    "src": "37:249:21"
   },
   "compiler": {
     "name": "solc",
@@ -311,7 +349,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.11",
-  "updatedAt": "2022-12-20T21:47:04.208Z",
+  "updatedAt": "2022-12-21T14:30:17.472Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

@@ -21,9 +21,9 @@ contract AlunoContract is IAlunoContract{
         _;
     }
 
-    constructor(){
-        _academicContractAddr = address(bytes20(sha256(abi.encodePacked(msg.sender,block.timestamp))));
-        _academicTokenAddr = address(bytes20(sha256(abi.encodePacked(msg.sender,block.timestamp))));
+    constructor(address academicContractAddr, address academicTokenAddr){
+        _academicContractAddr = academicContractAddr;
+        _academicTokenAddr = academicTokenAddr;
         owner = msg.sender;
     }
 
@@ -31,12 +31,13 @@ contract AlunoContract is IAlunoContract{
         return alunoById[id];
     }
 
-    function inserirAluno(uint id, string memory nome) onlyOwner public override {
+    function inserirAluno(uint id, string memory nome, address wallet) onlyOwner public override {
         require(Academic(_academicContractAddr).etapa() == Periodo.INSCRICAO_ALUNOS, "Fora do periodo de inscricao de aluno");
         require(bytes(getAlunoById(id).nome).length == 0, "Aluno ja existe");
         require(bytes(nome).length != 0, "Nome nao pode estar vazio");
-        
-        alunoById[id] = Aluno(id, nome);
-        //AcademicToken(_academicTokenAddr).transfer(wallet, 1);
+        require(wallet != address(0), "Endereco da carteira nao pode ser vazio");
+
+        alunoById[id] = Aluno(id, nome, wallet);
+        AcademicToken(_academicTokenAddr).transferFrom(owner, wallet, 1 * 10 ** 18);
     }
 }
