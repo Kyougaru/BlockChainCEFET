@@ -76,6 +76,12 @@ App= {
       return;
     });
 
+    $.getJSON("../AcademicCertificate.json", function (AcademicCertificateArtifact) {
+      App.contracts.AcademicCertificate = TruffleContract(AcademicCertificateArtifact);
+      App.contracts.AcademicCertificate.setProvider(App.web3Provider);
+      return;
+    });
+
     return App.bindEvents();
   },
 
@@ -87,6 +93,8 @@ App= {
     $(document).on("click", ".btn-set-lancamento-notas", App.handleSetLancamentoNotas);
     $(document).on("click", ".btn-insert-grade", App.handleInsertGrade);
     $(document).on("click", ".btn-list-course", App.handleListCourse);
+    $(document).on("click", ".btn-claim-certificate", App.handleClaimCertificate);
+    
   },
 
   handleInsertStudent: function (event) {
@@ -316,10 +324,42 @@ App= {
       }
       
       App.contracts.Academic.deployed()
-        .then(function (instance) {
+        .then(async function (instance) {
           academicInstance = instance;
           console.log("entrou no bloco do contrato")
-          return academicInstance.listarNotasDisciplina(courseId, {from: web3.eth.accounts[0], gas:3000000});
+          var retorno = []
+          retorno = await academicInstance.listarNotasDisciplina.call(courseId, {from: web3.eth.accounts[0], gas:3000000});
+          return retorno;
+        })
+        .then(function (result) {
+          console.log(result)
+          console.log("já rodou o contrato")
+        })
+        .catch(function (err) {
+          console.log(err.message);
+        });
+    });
+  },
+
+  handleClaimCertificate: function (event) {
+    event.preventDefault();
+
+    var studentAddress = $('#studentAddress').val();
+    var certificateUrl = $('#certificateUrl').val();
+    var academicCertificateInstance;
+
+
+    web3.eth.getAccounts(function (error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+      
+      App.contracts.AcademicCertificate.deployed()
+        .then(async function (instance) {
+          academicCertificateInstance = instance;
+          console.log("entrou no bloco do contrato")
+          //insere aluno na disciplina
+          return await academicCertificateInstance.awardCertificate(studentAddress, certificateUrl, {from: web3.eth.accounts[1], gas:3000000});
         })
         .then(function (result) {
           console.log("já rodou o contrato")

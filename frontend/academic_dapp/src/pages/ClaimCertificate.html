@@ -35,66 +35,40 @@
         <a class="nav-item nav-link" href="InsertCourse.html">Insert Course</a>
         <a class="nav-item nav-link" href="SubscribeStudentInCourse.html">Subscribe Student in Course</a>
         <a class="nav-item nav-link" href="AssignNotes.html">Assign Notes</a>
-        <a class="nav-item nav-link active" href="SeeCourseResults.html">See Course Results</a>
-        <a class="nav-item nav-link" href="ClaimCertificate.html">Claim Certificate</a>
-
+        <a class="nav-item nav-link" href="SeeCourseResults.html">See Course Results</a>
+        <a class="nav-item nav-link active" href="ClaimCertificate.html">Claim Certificate</a>
       </div>
     </div>
     <div style="float:right"><a class="navbar-nav nav-item nav-link" href="Admin.html">Admin</a></div>
   </nav>
 
-  <!-- SEE COURSE RESULTS FORM -->
+  <!-- SUBSCRIBE STUDENT IN COURSE FORM -->
   <div class="container">
     <div class="container pt-4" style="width: 50%;">
-      <h1 class="display-5 text-center">See Course Results</h2>
+      <h1 class="display-5 text-center">Claim Certificate</h2>
         <form>
           <div class="form-group">
-            <label for="id">Course ID</label>
-            <input type="number" class="form-control" id="courseId" placeholder="ID here">
+            <label for="id">Student Address</label>
+            <input type="text" class="form-control" id="studentAddress" placeholder="Student Address here">
           </div>
-          <button type="submit" class="btn btn-dark btn-list-course">Show Results</button>
+          <div class="form-group">
+            <label for="id">Certificate URL</label>
+            <input type="text" class="form-control" id="certificateUrl" placeholder="Certificate URL here">
+          </div>
+          <button type="submit" class="btn btn-dark btn-claim-certificate">Claim</button>
         </form>
     </div>
-  </div>
-
-  <!-- SEE COURSE RESULTS GRID -->
-  <div class="container pt-4">
-    <table class="table text-center">
-      <thead>
-        <tr>
-          <th scope="col">Student</th>
-          <th scope="col">Note</th>
-          <th scope="col">Situation</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Mark</td>
-          <td>2</td>
-          <td>Failed</td>
-        </tr>
-        <tr>
-          <td>Jacob</td>
-          <td>7</td>
-          <td>Pass</td>
-        </tr>
-        <tr>
-          <td>Larry</td>
-          <td>10</td>
-          <td>Pass</td>
-        </tr>
-      </tbody>
-    </table>
   </div>
 
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>  
   <script src="../js/web3.min.js"></script>
   <script src="../js/truffle-contract.js"></script>
   <script src="../js/app.js"></script>
+
 </body>
 
 </html>
